@@ -28,16 +28,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Features */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-center">Quick Features</h4>
-            <ul className="space-y-2 text-center">
-              <li><a href="#" className="hover:text-amber-400">Feature 1</a></li>
-              <li><a href="#" className="hover:text-amber-400">Feature 2</a></li>
-              <li><a href="#" className="hover:text-amber-400">Feature 3</a></li>
-              <li><a href="#" className="hover:text-amber-400">Feature 4</a></li>
-              <li><a href="#" className="hover:text-amber-400">Feature 5</a></li>
-            </ul>
-          </div>
+          
 
           {/* Contact Section */}
           <div className="col-span-2 sm:col-span-1">
@@ -67,9 +58,7 @@ const Footer = () => {
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="mt-10">
-              <h4 className="text-lg font-semibold mb-4 text-center">Subscribe to Our Newsletter</h4>
-            </div>
+            
           </div>
         </div>
 

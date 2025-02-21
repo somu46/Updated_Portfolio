@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import GetInTouch from "../UI-Components/getInTouch";
 const ContactSection = () => {
   return (
-    <section className="max-w-5xl mx-auto py-12 px-6">
+    <section id="/contact" className="max-w-5xl mx-auto py-12 px-6">
       <h2 className="text-3xl font-bold text-center mb-8">Get In Touch</h2>
 
       <div className="grid md:grid-cols-2 gap-8">

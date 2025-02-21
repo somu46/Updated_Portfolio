@@ -114,63 +114,7 @@ const projectData = [
             ]
         }
     },
-    {
-        id: 8,
-        title: "e-Shopping_app",
-        description: "A movie streaming web app that fetches data from TMDB API.",
-        image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739955898/Protfolio_Project_Image/e-shopping_app_cjmsxg.jpg", 
-        github: "https://github.com/Arkajyoti333/e-Shopping_app.git",
-        live: "https://moviewebapp.com",
-        explanation: {
-            description1: "This web application allows users to explore movies, view details, and watch trailers, using The Movie Database (TMDB) API.",
-            technologies: ["React", "TMDB API", "Tailwind CSS", "Firebase"],
-            features: [
-                "Movie search and filtering",
-                "Trending and top-rated movie lists",
-                "Movie details with trailers",
-                "User authentication for personalized watchlists",
-                "Responsive and mobile-friendly UI"
-            ]
-        }
-    },
-    {
-        id: 9,
-        title: "E Librarymanagement System",
-        description: "A movie streaming web app that fetches data from TMDB API.",
-        image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739955957/Protfolio_Project_Image/BookZZ_ojouli.jpg", 
-        github: "https://github.com/Arkajyoti333/online-_Librarymanagement_System_Fullstack.git",
-        live: "https://e-library-sasss.netlify.app",
-        explanation: {
-            description1: "This web application allows users to explore movies, view details, and watch trailers, using The Movie Database (TMDB) API.",
-            technologies: ["React", "TMDB API", "Tailwind CSS", "Firebase"],
-            features: [
-                "Movie search and filtering",
-                "Trending and top-rated movie lists",
-                "Movie details with trailers",
-                "User authentication for personalized watchlists",
-                "Responsive and mobile-friendly UI"
-            ]
-        }
-    },
-    {
-        id: 10,
-        title: "Google Keep Clone",
-        description: "A movie streaming web app that fetches data from TMDB API.",
-        image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/ParadiseCar1_rtc29f.jpg", 
-        github: "https://github.com/Arkajyoti333/Keep_Notes.git",
-        live: "https://keepnotestodos.netlify.app",
-        explanation: {
-            description1: "This web application allows users to explore movies, view details, and watch trailers, using The Movie Database (TMDB) API.",
-            technologies: ["React", "TMDB API", "Tailwind CSS", "Firebase"],
-            features: [
-                "Movie search and filtering",
-                "Trending and top-rated movie lists",
-                "Movie details with trailers",
-                "User authentication for personalized watchlists",
-                "Responsive and mobile-friendly UI"
-            ]
-        }
-    }
+
 ];
 
 

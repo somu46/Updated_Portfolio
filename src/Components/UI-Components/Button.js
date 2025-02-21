@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = () => {
+const Button = ({handleShowMore,handleShowLess,extendent}) => {
   return (
     <StyledWrapper>
-      <button>See more</button>
+      <button
+      onClick={extendent?handleShowMore:handleShowLess}
+      >{extendent?"Show More":"Show Less"}</button>
     </StyledWrapper>
   );
 }

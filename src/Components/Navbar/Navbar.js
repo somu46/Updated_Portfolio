@@ -20,7 +20,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="flex flex-wrap w-auto h-auto shadow-md z-30 fixed top-0 left-0 right-0 md:bg-transparent bg-opacity-70  backdrop-blur-md">
+      <div className="flex flex-wrap w-auto h-auto shadow-md z-30 fixed top-0 left-0 right-0 bg-transparent bg-opacity-70  backdrop-blur-md ">
         <nav className=" flex flex-wrap justify-between flex-row w-full   mx-5 my-1  text-lg  ">
           {/* logo  */}
           <motion.div

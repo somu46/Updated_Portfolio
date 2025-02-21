@@ -6,8 +6,8 @@ const Form = () => {
     <StyledWrapper>
       <div className="form-card1">
         <div className="form-card2">
-          <form className="form">
-            <p className="form-heading">Get In Touch</p>
+          <form className="form ">
+            
             <div className="form-field">
               <input required placeholder="Name" className="input-field" type="text" />
             </div>
@@ -42,14 +42,6 @@ const StyledWrapper = styled.div`
     border-radius: 20px;
   }
 
-  .form-heading {
-    text-align: center;
-    margin: 2em;
-    color: #64ffda;
-    font-size: 1.2em;
-    background-color: transparent;
-    align-self: center;
-  }
 
   .form-field {
     display: flex;
@@ -62,7 +54,8 @@ const StyledWrapper = styled.div`
     outline: none;
     color: white;
     background-color: #171717;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    box-shadow: inset 1px 1px 1px #D4E157;
+    margin-bottom: 12px;
   }
 
   .input-field {
@@ -84,26 +77,26 @@ const StyledWrapper = styled.div`
     background-color: transparent;
     color: #64ffda;
     font-weight: bold;
-    outline: 1px solid #64ffda;
+    outline: 1px solid #D4E157;
     transition: all ease-in-out 0.3s;
   }
 
   .sendMessage-btn:hover {
     transition: all ease-in-out 0.3s;
-    background-color: #64ffda;
+    background-color: #D4E157;
     color: #000;
     cursor: pointer;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    box-shadow: inset 2px 5px 10px #D4E157;
   }
 
   .form-card1 {
-    background-image: linear-gradient(163deg, #64ffda 0%, #64ffda 100%);
+    background-image: linear-gradient(163deg, #D4E157 0%, #D4E157 100%);
     border-radius: 22px;
     transition: all 0.3s;
   }
 
   .form-card1:hover {
-    box-shadow: 0px 0px 30px 1px rgba(100, 255, 218, 0.3);
+    box-shadow: 0px 0px 30px 1px #D4E157;
   }
 
   .form-card2 {

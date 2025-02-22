@@ -14,7 +14,7 @@ import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
-    <div className="bg-neutral-900 text-lime-400">
+    <div className="bg-neutral-800 text-lime-400">
       <Navbar/>
       <Intro/>
       <About/>

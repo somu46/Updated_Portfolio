@@ -1,8 +1,8 @@
 import { Link } from "react-scroll";
-import { MdOutlineMailLock } from "react-icons/md";
-import { FiGithub } from "react-icons/fi";
+
 import './intro.css'
-import { CiLinkedin } from "react-icons/ci";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaSquareXTwitter } from "react-icons/fa6";
 import Profile from "../../Assets/SoumyajitRay.jpg";
 import { useState } from "react";
 
@@ -54,25 +54,11 @@ const Home = () => {
                 {/* contact icon list   */}
 
                 <div className=" flex flex-wrap p-3 gap-y-3 gap-x-7 my-5 justify-center md:justify-normal">
-                  <a
-                    href="https://www.linkedin.com/in/soumyajit-ray-784264242/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <CiLinkedin className="text-[35px]   hover:text-sky-700 cursor-pointer" />
-                  </a>
-
-                  {/* <RiLinkedinBoxLine  className="text-[35px] text-gray-900 " /> */}
-                  <a href="/contact" target="_blank" rel="noopener noreferrer">
-                    <FiGithub className="text-[30px]   hover:text-sky-700 cursor-pointer" />
-                  </a>
-                  <a
-                    href="soumyajitray415@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MdOutlineMailLock className="text-[30px]   hover:text-sky-700 cursor-pointer" />
-                  </a>
+                  <a href='https://www.facebook.com/soumyajit.ray.75'><FaFacebook color='Gold'/> </a>
+                  <a href='https://www.instagram.com/soumyajit_ray/'> <FaInstagram color='Gold'/></a>
+                  <a href='https://x.com/SoumyajitRay5'> <FaSquareXTwitter color='Gold'/> </a>
+                  <a href='https://www.linkedin.com/in/soumyajit-ray2002/'> <FaLinkedin color='Gold'/></a>
+                  <a href='https://github.com/somu46'> <FaGithub color='Gold'/></a>
                 </div>
               </div>
             </div>

@@ -1,112 +1,73 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaSquareXTwitter } from "react-icons/fa6";
+import './GetInTouch.css';
 
-const Form = () => {
+const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      process.env.REACT_APP_SERVICE_ID, 
+      process.env.REACT_APP_TEMPLATE_ID, 
+      form.current, 
+      process.env.REACT_APP_PUBLIC_KEY)
+.then(
+      (result) => {
+        console.log('Email successfully sent!', result.text);
+        toast.success('Email sent successfully!');
+        form.current.reset();    // reset the from dataa in ui
+      },
+      (error) => {
+        console.error('Failed to send email:', error);
+        toast.error("Email sending failed.");
+      }
+    );
+  };
+
   return (
-    <StyledWrapper>
-      <div className="form-card1">
-        <div className="form-card2">
-          <form className="form ">
-            
-            <div className="form-field">
-              <input required placeholder="Name" className="input-field" type="text" />
-            </div>
-            <div className="form-field">
-              <input required placeholder="Email" className="input-field" type="email" />
-            </div>
-            <div className="form-field">
-              <input required placeholder="Subject" className="input-field" type="text" />
-            </div>
-            <div className="form-field">
-              <textarea required placeholder="Message" cols={30} rows={3} className="input-field" defaultValue={""} />
-            </div>
-            <button className="sendMessage-btn">Send Message</button>
+    <section id='contactPage'>
+      <div className='contact'>
+        
+        <span className='contactDesc'>
+          Please fill out this form below to discuss any work opportunities
+        </span>
+
+        <form className='contactForm' ref={form} onSubmit={sendEmail}>
+          <input
+            type='text'
+            className='name'
+            placeholder='Your Name'
+            name='your_name'
+            required
+          />
+          <input
+            type='email'
+            className='email'
+            placeholder='Your Email'
+            name='your_email'
+            required
+          />
+          <textarea
+            className='msg'
+            rows='10'
+            placeholder='Your Message'
+            name='message'
+            required
+          />
+          <button className='flex items-center justify-center p-4 w-full rounded-lg  hover:text-blue-500 transition border-2 border-lime-400' type='submit'>
+            Submit
+          </button>
           </form>
-        </div>
+         
+        
       </div>
-    </StyledWrapper>
+    </section>
   );
-}
+};
 
-const StyledWrapper = styled.div`
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    font-family: inherit;
-    gap: 10px;
-    padding-inline: 2em;
-    padding-bottom: 0.4em;
-    background-color: #171717;
-    //background-color: #0a192f;
-    border-radius: 20px;
-  }
-
-
-  .form-field {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
-    border-radius: 10px;
-    padding: 0.6em;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #171717;
-    box-shadow: inset 1px 1px 1px #D4E157;
-    margin-bottom: 12px;
-  }
-
-  .input-field {
-    background: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    color: #ccd6f6;
-    padding-inline: 1em;
-  }
-
-  .sendMessage-btn {
-    cursor: pointer;
-    margin-bottom: 3em;
-    padding: 1em;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: #64ffda;
-    font-weight: bold;
-    outline: 1px solid #D4E157;
-    transition: all ease-in-out 0.3s;
-  }
-
-  .sendMessage-btn:hover {
-    transition: all ease-in-out 0.3s;
-    background-color: #D4E157;
-    color: #000;
-    cursor: pointer;
-    box-shadow: inset 2px 5px 10px #D4E157;
-  }
-
-  .form-card1 {
-    background-image: linear-gradient(163deg, #D4E157 0%, #D4E157 100%);
-    border-radius: 22px;
-    transition: all 0.3s;
-  }
-
-  .form-card1:hover {
-    box-shadow: 0px 0px 30px 1px #D4E157;
-  }
-
-  .form-card2 {
-    border-radius: 0;
-    transition: all 0.2s;
-  }
-
-  .form-card2:hover {
-    transform: scale(0.98);
-    border-radius: 20px;
-  }`;
-
-export default Form;
+export default Contact;

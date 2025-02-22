@@ -62,7 +62,7 @@ function Profile() {
   ];
 
   return (
-    <section id="profile" className="py-10 ">
+    <section id="/profile" className="py-10 ">
       <div className="container mx-auto p-6 max-w-5xl">
         <h1 className="text-3xl font-semibold text-center text-orange-500 mb-6">Profile</h1>
         <div className="grid md:grid-cols-2 gap-10">

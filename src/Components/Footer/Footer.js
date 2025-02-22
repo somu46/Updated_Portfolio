@@ -1,60 +1,58 @@
 import React from 'react';
-import { FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaArrowUp } from 'react-icons/fa';
+import { FaLinkedin , FaXTwitter , FaFacebookF , FaGithub , FaInstagram } from "react-icons/fa6";
+import { Link } from 'react-scroll';
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-900 text-gray-400 py-10">
+    <footer className="bg-neutral-900 py-10 text-white">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Grid layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 text-center sm:text-left">
           {/* About Me */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">Soumyajit Ray</h4>
+            <h4 className="text-lg font-semibold mb-3">Soumyajit Ray</h4>
             <p className="text-sm">I am a full-stack web developer and tech enthusiast, passionate about building scalable applications.</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="/" className="hover:text-amber-400 transition">Home</a></li>
-              <li><a href="/about" className="hover:text-amber-400 transition">About</a></li>
-              <li><a href="/services" className="hover:text-amber-400 transition">Services</a></li>
-              <li><a href="/contact" className="hover:text-amber-400 transition">Contact</a></li>
-              <li><a href="/blog" className="hover:text-amber-400 transition">Blog</a></li>
+              <li><Link to='/home' smooth={true} duration={500} spy={true} offset={-100} className="hover:text-yellow-400 transition cursor-pointer">Home</Link></li>
+              <li><Link to='/about' smooth={true} duration={500} spy={true} offset={-100} className="hover:text-yellow-400 transition cursor-pointer">About</Link></li>
+              <li><Link to='/resume' smooth={true} duration={500} spy={true}  className="hover:text-yellow-400 transition cursor-pointer">Resume</Link></li>
+              <li><Link to='/profile' smooth={true} duration={500} spy={true} offset={-30} className="hover:text-yellow-400 transition cursor-pointer">Profile</Link></li>
+              <li><Link to='/project' smooth={true} duration={500} spy={true} offset={-100} className="hover:text-yellow-400 transition cursor-pointer">Projects</Link></li>
+              <li><Link to='/contact' smooth={true} duration={500} spy={true} offset={-100} className="hover:text-yellow-400 transition cursor-pointer">Contact</Link></li>
             </ul>
           </div>
 
-
           {/* Social Media */}
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">Follow Me</h4>
+            <h4 className="text-lg font-semibold mb-3">Follow Me</h4>
             <div className="flex space-x-4 justify-center sm:justify-start">
-              <a href="mailto:soumyajitray2002@gmail.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
-                <FaEnvelope className="w-5 h-5" />
+              <a href='https://www.facebook.com/soumyajit.ray.75' target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebookF className="text-gold hover:text-yellow-400 transition duration-300" />
               </a>
-              <a href="https://facebook.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
-                <FaFacebookF className="w-5 h-5" />
+              <a href='https://www.instagram.com/soumyajit_ray/' target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FaInstagram className="text-gold hover:text-yellow-400 transition duration-300" />
               </a>
-              <a href="https://twitter.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
-                <FaTwitter className="w-5 h-5" />
+              <a href='https://x.com/SoumyajitRay5' target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <FaXTwitter className="text-gold hover:text-yellow-400 transition duration-300" />
               </a>
-              <a href="https://instagram.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
-                <FaInstagram className="w-5 h-5" />
+              <a href='https://www.linkedin.com/in/soumyajit-ray2002/' target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin className="text-gold hover:text-yellow-400 transition duration-300" />
               </a>
-              <a href="https://github.com/somu46" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
-                <FaGithub className="w-5 h-5" />
+              <a href='https://github.com/somu46' target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <FaGithub className="text-gold hover:text-yellow-400 transition duration-300" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-8 border-t border-gray-700 pt-6 text-center flex flex-col sm:flex-row items-center justify-between">
+        <div className="mt-8 border-t pt-6 text-center">
           <p className="text-sm">&copy; 2025 Soumyajit Ray. All Rights Reserved.</p>
-          <a href="#top" className="p-3 bg-gray-800 rounded-full hover:bg-amber-400 transition mt-4 sm:mt-0">
-            <FaArrowUp className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </footer>

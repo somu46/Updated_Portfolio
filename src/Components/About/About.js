@@ -24,12 +24,12 @@ const About = () => {
                 📍
               </h3>
             </h1>
-            <h3 className="text-lg font-semibold text-gray-600 mx-3 mt-7 ">
-              Hey, my name is<b className="text-gray-800"> Soumyajit Ray </b>,
+            <h3 className="text-lg font-semibold  mx-3 mt-7 ">
+              Hey, my name is<b className=""> Soumyajit Ray </b>,
               and I'm a Frontend React Developer. My passion is to create and
               develop complete web apps, focusing on both Design and development.
             </h3>
-            <h1 className="text-lg font-semibold text-gray-600  mx-3 mt-5">
+            <h1 className="text-lg font-semibold   mx-3 mt-5">
               My main stack currently is JavaScript/React.js in combination with
               Tailwind CSS. I am also familiar with Postman for Testing APIs and Little bit of MongoDB also for Database.
             </h1>

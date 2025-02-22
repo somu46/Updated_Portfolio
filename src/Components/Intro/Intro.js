@@ -30,7 +30,7 @@ const Home = () => {
               <img
                 src={Profile}
                 alt="dp"
-                className="profile-image mt-[1.5rem] relative z-1 "
+                className="profile-image mt-[5.5rem] relative z-1 h-[15rem] w-[15rem] rounded-full"
               />
             </div>
          
@@ -83,7 +83,7 @@ const Home = () => {
               <img
                 src={Profile}
                 alt="dp"
-                className=" rounded-full w-[15rem] h-[15rem] md:w-[25rem] md:h-[25rem] relative z-1"
+                className="hidden md:block rounded-full w-[15rem] h-[15rem] md:w-[25rem] md:h-[25rem] relative z-1"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ const Home = () => {
               </p>
             </span>
             <div className="flex flex-wrap flex-row justify-center p-1 mx-auto my-3 md:my-1 md:mx-3 px-3 w-full md:w-[80%]  ">
-              <ul className="flex flex-wrap flex-row justify-center px-1 gap-4 md:gap-x-4 mx-auto md:mx-3 my-1">
+              <ul className="flex flex-wrap flex-row justify-center px-1 gap-4 md:gap-x-4 mx-auto md:mx-3 ">
                 <li className="mx-1 cursor-pointer transition-transform duration-300 ease-in-out hover:-translate-y-2.5">
                   <Link>
                     <img src="https://skillicons.dev/icons?i=html,css,tailwind"  alt="html , css , tailwind"/>

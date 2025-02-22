@@ -1,72 +1,60 @@
 import React from 'react';
-import { FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-800  py-6">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-neutral-900 text-gray-400 py-10">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Grid layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Us */}
-          <div className="col-span-2 sm:col-span-1">
-            <h4 className="text-lg text-center font-semibold mb-4">Soumyajit Ray</h4>
-            <p className="text-sm text-gray-300 text-center">
-              I am a full-stack web developer and a tech enthusiast.
-            </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 text-center sm:text-left">
+          {/* About Me */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-3">Soumyajit Ray</h4>
+            <p className="text-sm">I am a full-stack web developer and tech enthusiast, passionate about building scalable applications.</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-center">Quick Links</h4>
-            <ul className="space-y-2 text-center">
-              <li><a href="#" className="hover:text-amber-400">Home</a></li>
-              <li><a href="#" className="hover:text-amber-400">About</a></li>
-              <li><a href="#" className="hover:text-amber-400">Services</a></li>
-              <li><a href="#" className="hover:text-amber-400">Contact</a></li>
-              <li><a href="#" className="hover:text-amber-400">Blog</a></li>
+            <h4 className="text-lg font-semibold text-white mb-3">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><a href="/" className="hover:text-amber-400 transition">Home</a></li>
+              <li><a href="/about" className="hover:text-amber-400 transition">About</a></li>
+              <li><a href="/services" className="hover:text-amber-400 transition">Services</a></li>
+              <li><a href="/contact" className="hover:text-amber-400 transition">Contact</a></li>
+              <li><a href="/blog" className="hover:text-amber-400 transition">Blog</a></li>
             </ul>
           </div>
 
-          {/* Quick Features */}
-          
 
-          {/* Contact Section */}
-          <div className="col-span-2 sm:col-span-1">
-            <h4 className="text-lg font-semibold mb-4 text-center">Contact Us</h4>
-            <p className="text-sm text-gray-300 flex items-center gap-2 justify-center">
-              
-              
-            </p>
-
-            {/* Social Media Links */}
-            <div className="flex space-x-4 mt-4 mx-auto justify-center">
-              <a href="mailto:soumyajitray2002@gmail.com" className="hover:text-amber-400 text-[1rem]">
-              <FaEnvelope className="h-6 w-6" />
+          {/* Social Media */}
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-3">Follow Me</h4>
+            <div className="flex space-x-4 justify-center sm:justify-start">
+              <a href="mailto:soumyajitray2002@gmail.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
+                <FaEnvelope className="w-5 h-5" />
               </a>
-              <a href="https://facebook.com" className=" hover:text-amber-400 transition" aria-label="Facebook">
-                <FaFacebookF className="h-6 w-6" />
+              <a href="https://facebook.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
+                <FaFacebookF className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com" className=" hover:text-amber-400 transition" aria-label="Twitter">
-                <FaTwitter className="h-6 w-6" />
+              <a href="https://twitter.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
+                <FaTwitter className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" className=" hover:text-amber-400 transition" aria-label="Instagram">
-                <FaInstagram className="h-6 w-6" />
+              <a href="https://instagram.com" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
+                <FaInstagram className="w-5 h-5" />
               </a>
-              <a href="https://github.com/somu46" className=" hover:text-amber-400 transition" aria-label="YouTube">
-                <FaGithub className="h-6 w-6" />
+              <a href="https://github.com/somu46" className="p-2 bg-gray-800 rounded-full hover:bg-amber-400 transition">
+                <FaGithub className="w-5 h-5" />
               </a>
             </div>
-
-            {/* Newsletter Subscription */}
-            
           </div>
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-10 border-t border-gray-700 pt-6 text-center">
-          <p className="text-sm text-gray-400">
-            &copy; 2025 Soumyajit Ray. All Rights Reserved.
-          </p>
+        <div className="mt-8 border-t border-gray-700 pt-6 text-center flex flex-col sm:flex-row items-center justify-between">
+          <p className="text-sm">&copy; 2025 Soumyajit Ray. All Rights Reserved.</p>
+          <a href="#top" className="p-3 bg-gray-800 rounded-full hover:bg-amber-400 transition mt-4 sm:mt-0">
+            <FaArrowUp className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </footer>

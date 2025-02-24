@@ -141,8 +141,8 @@ const NavBar = () => {
         >
           <motion.nav animate={isOpen ? "open" : "closed"} variants={variants}>
             {/* <Toggle onClick={handleToggle} /> */}
-            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3">
-              <li className="cursor-pointer  hover:text-green-600 ">
+            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 border border-red-700">
+              <li className="cursor-pointer mx-1 hover:text-green-600  ">
                 <Link
                   to="/home"
                   spy={true}
@@ -151,6 +151,7 @@ const NavBar = () => {
                   duration={500}
                   activeClass="active"
                   onClick={handleToggle}
+                  className=""
                 >
                   Home
                 </Link>

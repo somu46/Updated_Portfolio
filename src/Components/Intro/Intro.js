@@ -50,7 +50,7 @@ const Home = () => {
                   alt="Soumyajit Ray"
                   className="h-60 w-60 md:h-80 md:w-80 rounded-full border-4 border-white dark:border-slate-800 shadow-xl hover:scale-105 transition-transform duration-300 mx-auto"
                 />
-                <div className="absolute inset-0 rounded-full border-2 border-yellow-400/100 animate-pulse" />
+                <div className="absolute inset-0 rounded-full border-4 border-yellow-400/100 animate-bounce" />
               </div>
             </div>
 

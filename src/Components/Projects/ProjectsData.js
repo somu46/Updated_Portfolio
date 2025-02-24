@@ -62,7 +62,7 @@ const projectData = [
         description: "A real-time ambulance booking system for emergency situations.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739954617/Protfolio_Project_Image/SevaRide_r4auio.jpg", 
         github: "https://github.com/Arkajyoti333/Sevaride.git",
-        live: "https://sevaride.com",
+        live: "#",
         explanation: {
             description1: "Sevaride is a web application that allows users to quickly book ambulances during medical emergencies, ensuring timely assistance.",
             technologies: ["React", "Node.js", "Express", "MongoDB", "Google Maps API"],
@@ -81,7 +81,7 @@ const projectData = [
         description: "A web app that provides an Islamic calendar with important religious dates.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/Islamic_Essentials_yziseo.jpg", 
         github: "https://github.com/Arkajyoti333/Islamic-Calendar-App.git",
-        live: "https://islamiccalendarapp.com",
+        live: "https://islamicalendar.in",
         explanation: {
             description1: "This application offers an interactive Islamic calendar that highlights significant Islamic dates, prayer times, and events.",
             technologies: ["React", "Zustan","Tailwind CSS", "aladhan API"],
@@ -101,7 +101,7 @@ const projectData = [
         description: "A movie streaming web app that fetches data from TMDB API.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739956274/movie_app_hvqybo.jpg", 
         github: "https://github.com/Arkajyoti333/Movie-Webapp-TMDB.git",
-        live: "https://moviewebapp.com",
+        live: "#",
         explanation: {
             description1: "This web application allows users to explore movies, view details, and watch trailers, using The Movie Database (TMDB) API.",
             technologies: ["React", "TMDB API", "Tailwind CSS", "Firebase"],

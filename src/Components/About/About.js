@@ -1,6 +1,3 @@
-// import VideoSource from "../../assets/video/AboutVideo.mp4";
-// import AboutImg from "../../assets/AboutPic.jpg";
-// import { motion } from "framer-motion";
 import Card from "../UI-Components/Card";
 
 
@@ -22,10 +19,8 @@ const About = () => {
           <div className="flex  flex-wrap w-full md:w-1/2  p-3 mt-3">
             
             <h1 className="relative w-full  flex items-center mx-3 text-3xl font-bold mt-2 mb-2">
-              Full-Stack (MERN) Developer based in kolkata
-              <h3 className="text-xl absolute mt-[4.8rem] right-[9rem] md:mt-9 md:right-[14rem]">
-                📍
-              </h3>
+              Full-Stack (MERN) Developer based in kolkata 📍
+              
             </h1>
             <h3 className="text-lg font-semibold  mx-3 mt-7 ">
               Hey, my name is<b className=""> Soumyajit Ray </b>,

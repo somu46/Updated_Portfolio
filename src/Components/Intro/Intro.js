@@ -54,11 +54,11 @@ const Home = () => {
                 {/* contact icon list   */}
 
                 <div className=" flex flex-wrap p-3 gap-y-3 gap-x-7 my-5 justify-center md:justify-normal">
-                  <a href='https://www.facebook.com/soumyajit.ray.75'><FaFacebook color='Gold'/> </a>
-                  <a href='https://www.instagram.com/soumyajit_ray/'> <FaInstagram color='Gold'/></a>
-                  <a href='https://x.com/SoumyajitRay5'> <FaSquareXTwitter color='Gold'/> </a>
-                  <a href='https://www.linkedin.com/in/soumyajit-ray2002/'> <FaLinkedin color='Gold'/></a>
-                  <a href='https://github.com/somu46'> <FaGithub color='Gold'/></a>
+                  <a href='https://www.facebook.com/soumyajit.ray.75'><FaFacebook className="text-2xl hover:scale-110 duration-300" color='Gold'/> </a>
+                  <a href='https://www.instagram.com/soumyajit_ray/'> <FaInstagram className="text-2xl hover:scale-110 duration-300" color='Gold'/></a>
+                  <a href='https://x.com/SoumyajitRay5'> <FaSquareXTwitter className="text-2xl hover:scale-110 duration-300" color='Gold'/> </a>
+                  <a href='https://www.linkedin.com/in/soumyajit-ray2002/'> <FaLinkedin className="text-2xl hover:scale-110 duration-300" color='Gold'/></a>
+                  <a href='https://github.com/somu46'> <FaGithub className="text-2xl hover:scale-110 duration-300" color='Gold'/></a>
                 </div>
               </div>
             </div>

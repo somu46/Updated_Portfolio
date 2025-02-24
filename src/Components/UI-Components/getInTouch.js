@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { FaSquareXTwitter } from "react-icons/fa6";
 import './GetInTouch.css';
 
 const Contact = () => {

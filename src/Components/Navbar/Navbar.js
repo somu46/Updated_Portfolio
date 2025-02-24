@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { GiCrossMark } from "react-icons/gi";
 
+
 const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: "-100%" },
@@ -22,7 +23,7 @@ const NavBar = () => {
     <>
       <div className="flex flex-wrap w-auto h-auto shadow-md z-30 fixed top-0 left-0 right-0 bg-transparent bg-opacity-70  backdrop-blur-md ">
         <nav className=" flex flex-wrap justify-between flex-row w-full   mx-5 my-1  text-lg  ">
-          {/* logo  */}
+          
           <motion.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 1.1 }}
@@ -129,7 +130,7 @@ const NavBar = () => {
               onClick={handleToggle}
             />
 
-            {/* <Toggle onClick={handleToggle} /> */}
+            
           </div>
         </nav>
 
@@ -140,8 +141,8 @@ const NavBar = () => {
            `}
         >
           <motion.nav animate={isOpen ? "open" : "closed"} variants={variants}>
-            {/* <Toggle onClick={handleToggle} /> */}
-            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 border border-red-700">
+            
+            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 ">
               <li className="cursor-pointer mx-1 hover:text-green-600  ">
                 <Link
                   to="/home"

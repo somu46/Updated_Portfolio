@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLinkedin, FaXTwitter, FaFacebookF, FaGithub, FaInstagram } from "react-icons/fa6";
 import { Link } from 'react-scroll';
+import logo from '../../Assets/logo.png';
 
 const Footer = () => {
   return (
@@ -10,6 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 justify-items-center text-center">
           {/* About Section */}
           <div className="space-y-4 max-w-[250px]">
+          <img src={logo} alt='SR' className="h-25 w-24 mx-auto"/>
             <h4 className="text-xl font-bold bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent">
               Soumyajit Ray
             </h4>

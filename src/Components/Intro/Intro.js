@@ -3,14 +3,9 @@ import './intro.css'
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Profile from "../../Assets/SoumyajitRay.jpg";
-import { useState } from "react";
+
 
 const Home = () => {
-  const [open, setopen] = useState(false);
-
-  const handleShow = () => {
-    setopen(!open);
-  };
 
   const techStack = [
     { icons: 'html', name: 'HTML' },
@@ -50,7 +45,7 @@ const Home = () => {
                   alt="Soumyajit Ray"
                   className="h-60 w-60 md:h-80 md:w-80 rounded-full border-4 border-white dark:border-slate-800 shadow-xl hover:scale-105 transition-transform duration-300 mx-auto"
                 />
-                <div className="absolute inset-0 rounded-full border-4 border-yellow-400/100 animate-bounce" />
+                <div className="absolute inset-0 rounded-full border-4 border-yellow-400/100 animate-pulse" />
               </div>
             </div>
 

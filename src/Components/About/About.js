@@ -11,13 +11,16 @@ const About = () => {
         id="/about"
         className="m-3 flex flex-wrap justify-center h-auto md:max-h-screen"
       >
-        <div className="flex flex-wrap flex-col-reverse sm:flex-row  justify-between m-1 w-full md:w-[80%]  ">
-
-          
-          <div className="flex  flex-wrap w-full md:w-1/2  p-3 mt-3">
-            <h2 className="flex items-center w-full mx-3 mt-3 text-lg font-bold text-blue-600  ">
-              ABOUT ME
+            <div className="w-full flex justify-center ">
+            <h2 className="text-4xl mx-3 mt-3 font-bold text-yellow-400 text-center">
+              About Me
             </h2>
+            </div>
+        <div className="flex flex-wrap flex-col-reverse sm:flex-row  justify-between m-1 w-full md:w-[80%]   ">
+
+        
+          <div className="flex  flex-wrap w-full md:w-1/2  p-3 mt-3">
+            
             <h1 className="relative w-full  flex items-center mx-3 text-3xl font-bold mt-2 mb-2">
               Full-Stack (MERN) Developer based in kolkata
               <h3 className="text-xl absolute mt-[4.8rem] right-[9rem] md:mt-9 md:right-[14rem]">

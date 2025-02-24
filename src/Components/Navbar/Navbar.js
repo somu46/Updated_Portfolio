@@ -32,7 +32,7 @@ const NavBar = () => {
           >
             <Link
               to="/home"
-              className=" h-auto p-1 m-3 font-extrabold text-xl cursor-pointer hover:text-orange-600"
+              className="text-3xl font-semibold bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent"
             >
               Soumyajit
             </Link>
@@ -68,7 +68,7 @@ const NavBar = () => {
                 to="/resume"
                 spy={true}
                 smooth={true}
-               
+                offset={-100}
                 duration={500}
                 activeClass="active"
               >
@@ -80,7 +80,7 @@ const NavBar = () => {
                 to="/profile"
                 spy={true}
                 smooth={true}
-                offset={-30}
+                offset={-100}
                 duration={500}
                 activeClass="active"
               >
@@ -89,14 +89,14 @@ const NavBar = () => {
             </li>
             <li className="cursor-pointer mx-1 hover:text-yellow-500">
               <Link
-                to="/project"
+                to="/projects"
                 spy={true}
                 smooth={true}
                 offset={-100}
                 duration={500}
                 activeClass="active"
               >
-                Project
+                Projects
               </Link>
             </li>
             <li className="cursor-pointer mx-1 hover:text-teal-600">
@@ -198,7 +198,7 @@ const NavBar = () => {
             </li>
               <li className="cursor-pointer mx-1 hover:text-yellow-500">
                 <Link
-                  to="/project"
+                  to="/projects"
                   spy={true}
                   smooth={true}
                   offset={-100}
@@ -206,7 +206,7 @@ const NavBar = () => {
                   activeClass="active"
                   onClick={handleToggle}
                 >
-                  Project
+                  Projects
                 </Link>
               </li>
               <li className="cursor-pointer mx-1 hover:text-teal-600">

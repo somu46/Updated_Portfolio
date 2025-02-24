@@ -8,7 +8,7 @@ function TimelineItem({ item }) {
       <div className="mt-2">
         {item.company && <div className="text-lg font-semibold text-orange-500">{item.company}</div>}
         <div className="font-bold ">{item.title}</div>
-        {item.subtitle && <div className=" mt-1">{item.subtitle}</div>}
+        {item.Institute && <div className=" mt-1 text-lg font-semibold text-orange-500">{item.Institute}</div>}
         <ul className="mt-2 space-y-1 ">
           {item.details.map((detail, idx) => (
             <li key={idx}>{detail}</li>
@@ -24,7 +24,7 @@ function Profile() {
     {
       year: "2020-2024",
       title: "B.Tech in Computer Science and Engineering",
-      subtitle: "Budge Budge Institute of Technology, Kolkata",
+      Institute: "Budge Budge Institute of Technology, Kolkata",
       details: [
         "Main coursework: Data Structures, DBMS, OS, Software Engineering."
       ]
@@ -32,13 +32,13 @@ function Profile() {
     {
       year: "2018-2020",
       title: "Higher Secondary Education",
-      subtitle: "Naraindass Bangur Memorial Multipurpose High School",
+      Institute: "Naraindass Bangur Memorial Multipurpose High School",
       details: ["Grade: 60%"]
     },
     {
       year: "2013-2018",
       title: "Secondary Education",
-      subtitle: "Naraindass Bangur Memorial Multipurpose High School",
+      Institute: "Naraindass Bangur Memorial Multipurpose High School",
       details: ["Grade: 55%"]
     }
   ];
@@ -64,7 +64,7 @@ function Profile() {
   return (
     <section id="/profile" className="py-10 ">
       <div className="container mx-auto p-6 max-w-5xl">
-        <h1 className="text-3xl font-semibold text-center text-orange-500 mb-6">Profile</h1>
+        <h1 className="text-4xl font-bold text-center text-orange-500 mb-6">Profile</h1>
         <div className="grid md:grid-cols-2 gap-10">
           {/* Academic Section */}
           <div className=" p-6 rounded-lg ">

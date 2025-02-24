@@ -26,10 +26,10 @@ const Project = () => {
   return (
     <>
       <div
-        id="/project"
+        id="/projects"
         className=" text-3xl font-semibold my-3 py-5  gap-3  min-w-full"
       >
-        <h1 className="text-center text-4xl font-bold text-[#B6834A]">Projects</h1>
+        <h1 className="text-center text-4xl font-bold text-yellow-400">Projects</h1>
         <div className="flex flex-wrap sm:flex-row fex-col my-3 justify-center items-center gap-4  py-3 ">
       
       {projectData.map((project) => (

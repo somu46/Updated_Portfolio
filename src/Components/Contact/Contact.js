@@ -10,7 +10,7 @@ const ContactSection = () => {
         {/* Left Section - Contact Info */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Let's Connect</h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-300 mb-6">
             I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
           </p>
 
@@ -21,8 +21,10 @@ const ContactSection = () => {
                 <FaEnvelope className="text-blue-500 w-6 h-6" />
               </div>
               <div className="ml-4">
+                <a href="mailto:soumyajitray2002@gmail.com">
                 <h4 className="font-medium">Email</h4>
                 <p className=" text-sm">soumyajitray2002@gmail.com</p>
+                </a>
               </div>
             </div>
 
@@ -31,8 +33,10 @@ const ContactSection = () => {
                 <FaPhoneAlt className="text-blue-500 w-6 h-6" />
               </div>
               <div className="ml-4">
+                <a href="tel:+919123813528">
                 <h4 className="font-medium">Phone</h4>
                 <p className=" text-sm">+91 9123813528</p>
+                </a>
               </div>
             </div>
           </div>

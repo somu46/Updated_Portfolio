@@ -9,7 +9,7 @@ import Projects from '../src/Components/Projects/Projects'
 import Contact from '../src/Components/Contact/Contact'
 import Footer from './Components/Footer/Footer';
 
-
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
       <Projects/> 
       <Contact/>
       <Footer/>
+      <Toaster />
     </div>
   );
 }

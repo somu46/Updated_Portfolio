@@ -97,7 +97,7 @@ const Footer = () => {
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} Soumyajit Ray. All rights reserved.
             <span className="block sm:inline mt-2 sm:mt-0">
-              Built with Passion & ❤️  
+              Built with Passion & ❤️ <br></br> 
             </span>
             <span>
             developed with React & Tailwind CSS

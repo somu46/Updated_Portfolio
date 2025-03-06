@@ -4,7 +4,7 @@ const projectData = [
         title: "ParadiseCar",
         description: "A web application that simplifies the car rental process.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/ParadiseCar1_rtc29f.jpg", 
-        github: "https://github.com/Arkajyoti333/ParadiseCar-v2.git",
+        github: "https://github.com/somu46/ParadiseCar.git",
         live: "https://paradisecar.in",
         explanation: {
             description1: "ParadiseCar allows users to browse, select, and book rental cars seamlessly. It features a responsive UI, booking form, search system, and dark mode support.",
@@ -23,7 +23,7 @@ const projectData = [
         title: "Avishree Hospitality Pvt. Ltd.",
         description: "A website designed for Avishree Hospitality to showcase its services and offerings.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/avishreehospitality.com_endr6g.jpg", 
-        github: "https://github.com/Arkajyoti333/Avishree-Hospitality.git", 
+        github: "https://github.com/somu46/Avishree.git", 
         live: "https://avishreehospitality.com", 
         explanation: {
             description1: "A professional and visually appealing website for Avishree Hospitality Pvt. Ltd., highlighting their hospitality services, portfolio, and client engagement.",
@@ -42,7 +42,7 @@ const projectData = [
         title: "NestFixers",
         description: "A home maintenance service booking platform.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/NestFixers_o14kur.jpg", 
-        github: "https://github.com/Arkajyoti333/NestFixers.git",
+        github: "https://github.com/somu46/NestFixers.git",
         live: "https://nestfixers.com",
         explanation: {
             description1: "NestFixers connects homeowners with professional maintenance services, making home repairs and improvements easy and hassle-free.",
@@ -61,8 +61,8 @@ const projectData = [
         title: "E-Ambulance Booking System - Sevaride",
         description: "A real-time ambulance booking system for emergency situations.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739954617/Protfolio_Project_Image/SevaRide_r4auio.jpg", 
-        github: "https://github.com/Arkajyoti333/Sevaride.git",
-        live: "https://sevaride.com",
+        github: "https://github.com/somu46/E-Ambulance-booking-System-Sevaride-.git",
+        live: "#",
         explanation: {
             description1: "Sevaride is a web application that allows users to quickly book ambulances during medical emergencies, ensuring timely assistance.",
             technologies: ["React", "Node.js", "Express", "MongoDB", "Google Maps API"],
@@ -80,8 +80,8 @@ const projectData = [
         title: "Islamic Calendar App",
         description: "A web app that provides an Islamic calendar with important religious dates.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/Islamic_Essentials_yziseo.jpg", 
-        github: "https://github.com/Arkajyoti333/Islamic-Calendar-App.git",
-        live: "https://islamiccalendarapp.com",
+        github: "https://github.com/somu46/Islamic-calendar.git",
+        live: "https://islamicalendar.in",
         explanation: {
             description1: "This application offers an interactive Islamic calendar that highlights significant Islamic dates, prayer times, and events.",
             technologies: ["React", "Zustan","Tailwind CSS", "aladhan API"],
@@ -100,8 +100,8 @@ const projectData = [
         title: "Movie WebApp - TMDB(clone)",
         description: "A movie streaming web app that fetches data from TMDB API.",
         image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739956274/movie_app_hvqybo.jpg", 
-        github: "https://github.com/Arkajyoti333/Movie-Webapp-TMDB.git",
-        live: "https://moviewebapp.com",
+        github: "https://github.com/somu46/Movie-Webapp_TMDB.git",
+        live: "#",
         explanation: {
             description1: "This web application allows users to explore movies, view details, and watch trailers, using The Movie Database (TMDB) API.",
             technologies: ["React", "TMDB API", "Tailwind CSS", "Firebase"],

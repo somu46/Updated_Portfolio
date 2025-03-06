@@ -40,7 +40,7 @@ const ProjectCard = ({project}) => {
           <a href={project?.live} target="_blank" rel="noopener noreferrer">
             <FiExternalLink className="text-xl hover:text-white transition-all  opacity-0 group-hover:opacity-100" />
           </a>
-          <a href="###" target="_blank" rel="noopener noreferrer " 
+          <a href={project.description1} target="_blank" rel="noopener noreferrer " 
           onClick={handleOpenModal}>
             <AiOutlineFullscreen className="text-xl hover:text-white  transition-all " />
           </a>

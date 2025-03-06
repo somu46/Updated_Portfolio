@@ -9,12 +9,12 @@ import Projects from '../src/Components/Projects/Projects'
 import Contact from '../src/Components/Contact/Contact'
 import Footer from './Components/Footer/Footer';
 
-
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
   return (
-    <div className="bg-neutral-800 text-lime-400">
+    <div className="bg-[#0A0A0A] text-white">
       <Navbar/>
       <Intro/>
       <About/>
@@ -23,6 +23,7 @@ function App() {
       <Projects/> 
       <Contact/>
       <Footer/>
+      <Toaster />
     </div>
   );
 }

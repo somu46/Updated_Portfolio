@@ -16,12 +16,12 @@ const Contact = () => {
       process.env.REACT_APP_PUBLIC_KEY)
 .then(
       (result) => {
-        console.log('Email successfully sent!', result.text);
+        
         toast.success('Email sent successfully!');
-        form.current.reset();    // reset the from dataa in ui
+        form.current.reset();    
       },
       (error) => {
-        console.error('Failed to send email:', error);
+        
         toast.error("Email sending failed.");
       }
     );

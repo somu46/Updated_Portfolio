@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Loader = () => {
+const Loading = () => {
   return (
     <StyledWrapper>
       <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster">
@@ -299,5 +299,20 @@ const StyledWrapper = styled.div`
       transform: rotate(-1turn);
     }
   }`;
+
+
+const Loader = () => {
+
+    return (
+        <>
+        <div className='flex justify-center items-center h-screen bg-[#212121]'>
+            
+        <Loading />
+        </div>
+        </>
+    );
+};
+
+
 
 export default Loader;

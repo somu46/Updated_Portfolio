@@ -50,13 +50,13 @@ const Home = () => {
             </div>
 
             {/* Intro Text Section */}
-            <div className="order-2 md:order-1 w-full md:w-[65%] flex flex-wrap mx-1 px-3">
+            <div className="order-2 md:order-1 w-full md:w-[65%] flex flex-wrap mx-1 px-3 ">
               <div className="flex flex-col md:ml-5 md:pl-3 w-full md:max-w-[50rem] mt-1 md:mt-24 overflow-hidden relative">
-                <div className="flex justify-center md:justify-normal items-center">
+                <div className="flex justify-center md:justify-normal items-center mb-10">
                   <h1 className="text-center md:text-left text-4xl md:text-6xl font-bold bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent mx-1 md:mx-3 m-0 leading-tight">
                     Frontend React
                     <span className="block mt-2">Developer</span>
-                    <span className="wave ml-2 text-4xl md:text-5xl">👋🏻</span>
+                    {/* <span className="wave text-white ml-2 text-4xl md:text-5xl border border-red-500">👋🏻</span> */}
                   </h1>
                 </div>
                 
@@ -66,7 +66,7 @@ const Home = () => {
                 </p>
 
                 {/* Social Links */}
-                <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6 md:mt-8">
+                <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:mt-6 md:mt-8">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}

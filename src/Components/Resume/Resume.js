@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFilePdf } from "react-icons/fa";
-import CV from '../../Assets/Soumyajit_Ray.pdf';
+import CV from '../../Assets/SoumyajitRay_Resume.pdf';
 
 const Resume = () => {
   return (
@@ -54,7 +54,7 @@ const Resume = () => {
 
               {/* Additional Info */}
               <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">
-                PDF Format | Last Updated: July 2024
+                PDF Format | Last Updated: April 2025
               </p>
             </div>
 

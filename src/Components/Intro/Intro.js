@@ -39,15 +39,24 @@ const Home = () => {
             
             {/* Unified Profile Image */}
             <div className="order-1 md:order-2 relative mt-20 md:mt-0 animate-fade-in">
-              <div className="relative">
-                <img
-                  src={Profile}
-                  alt="Soumyajit Ray"
-                  className="h-60 w-60 md:h-80 md:w-80 rounded-full border-4 border-white dark:border-slate-800 shadow-xl hover:scale-105 transition-transform duration-300 mx-auto"
-                />
-                <div className="absolute inset-0 rounded-full border-4 border-yellow-400/100 animate-pulse" />
-              </div>
-            </div>
+  <div className="relative">
+    <img
+      src={Profile}
+      alt="Soumyajit Ray"
+      className="h-60 w-60 md:h-96 md:w-96 rounded-full border-10 dark:border-slate-800 shadow-xl hover:scale-105 transition-transform duration-300 mx-auto"
+    />
+    <div 
+      className="absolute inset-0 rounded-full p-1"
+      style={{
+        background: 'linear-gradient(45deg, #f59e0b, #ec4899)',
+        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+        WebkitMaskComposite: 'xor',
+        maskComposite: 'exclude',
+      }}
+    />
+  </div>
+</div>
 
             {/* Intro Text Section */}
             <div className="order-2 md:order-1 w-full md:w-[65%] flex flex-wrap mx-1 px-3 ">

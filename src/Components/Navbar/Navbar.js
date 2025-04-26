@@ -128,7 +128,7 @@ const NavBar = () => {
             <GiCrossMark
               className={`${
                 isOpen ? "block" : "hidden"
-              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 text-rose-600 `}
+              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 text-rose-500 `}
               onClick={handleToggle}
             />
 

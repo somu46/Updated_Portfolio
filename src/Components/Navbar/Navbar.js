@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { IoMenuOutline } from "react-icons/io5";
+import { GiTripleScratches } from "react-icons/gi";
 import "./Navbar.css";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -119,16 +119,16 @@ const NavBar = () => {
           {/* mobile menu bar */}
 
           <div className="flex flex-wrap items-center justify-center p-1 lg:hidden ">
-            <IoMenuOutline
+            <GiTripleScratches
               className={` ${
                 !isOpen ? "block" : "hidden"
-              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 `}
+              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 text-amber-400 `}
               onClick={handleToggle}
             />
             <GiCrossMark
               className={`${
                 isOpen ? "block" : "hidden"
-              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 `}
+              } text-3xl  transition-transform duration-300 ease-in-out hover:translate-x-2.5 text-rose-600 `}
               onClick={handleToggle}
             />
 

@@ -41,7 +41,7 @@ const NavBar = () => {
             </Link>
           </motion.div>
           {/* Desktop Menu Bar */}
-          <ul className="hidden lg:flex flex-wrap justify-center items-center mx-10 gap-x-4  font-bold p-1">
+          <ul className="hidden lg:flex flex-wrap justify-center items-center mx-10 gap-x-4  font-bold p-1 bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent">
             <li className="cursor-pointer  hover:text-green-600">
               <Link
                 to="/home"
@@ -144,7 +144,7 @@ const NavBar = () => {
         >
           <motion.nav animate={isOpen ? "open" : "closed"} variants={variants}>
             
-            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 ">
+            <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent ">
               <li className="cursor-pointer mx-1 hover:text-green-600  ">
                 <Link
                   to="/home"

@@ -139,10 +139,10 @@ const NavBar = () => {
         {/* mobile menu bar */}
         <div
           className={`${isOpen ? "block" : "hidden"}
-           lg:hidden w-[95%] min-h-svh flex justify-start py-4 shadow-lg bg-transparent border-r-2 rounded-md  z-50
+           lg:hidden w-[100%] min-h-svh flex justify-start py-4 shadow-lg bg-gray-500  rounded-md  z-50
            `}
         >
-          <motion.nav animate={isOpen ? "open" : "closed"} variants={variants}>
+          <motion.nav animate={isOpen ? "open" : "closed"} variants={variants} >
             
             <ul className=" flex flex-wrap flex-col justify-center gap-4 font-bold py-1 mx-3 bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent ">
               <li className="cursor-pointer mx-1 hover:text-green-600  ">

@@ -1,6 +1,6 @@
 import { useEffect, useRef, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Palette, Zap, Users, Camera } from 'lucide-react';
+import { Code2, Palette, Zap, Users } from 'lucide-react';
 
 const Globe = lazy(() => import('../Globe/Globe'));
 

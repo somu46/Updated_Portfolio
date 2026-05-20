@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FiGithub, FiExternalLink } from 'lucide-react';
+import { X } from 'lucide-react';
 import { FiGithub as Github, FiExternalLink as ExternalLink } from 'react-icons/fi';
 import { CheckCircle2 } from 'lucide-react';
 

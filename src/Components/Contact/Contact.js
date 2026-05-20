@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import GetInTouch from '../UI-Components/getInTouch';
 

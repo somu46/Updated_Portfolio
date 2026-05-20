@@ -1,5 +1,1 @@
-.active{
-    color: gold;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid gold;
-}
+/* Navbar styles now handled entirely by Tailwind utilities */

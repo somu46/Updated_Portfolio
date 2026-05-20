@@ -1,141 +1,148 @@
-import React, { useEffect, useRef } from 'react';
-import Card from "../UI-Components/Card";
+import { useEffect, useRef, Suspense, lazy } from 'react';
+import { motion } from 'framer-motion';
+import { Code2, Palette, Zap, Users } from 'lucide-react';
 
-const About = () => {
-  // Skill data with percentages
-  const skills = [
-    { name: 'React.js', percentage: 90 },
-    { name: 'JavaScript', percentage: 85 },
-    { name: 'Tailwind CSS', percentage: 95 },
-    { name: 'MongoDB', percentage: 70 },
-  ];
+const Globe = lazy(() => import('../Globe/Globe'));
 
-  // CircularProgressBar Component
-  const CircularProgressBar = ({ skill, percentage }) => {
-    const circleRef = useRef(null);
+const skills = [
+  { name: 'React.js',      percentage: 90, color: 'bg-blue-500' },
+  { name: 'JavaScript',    percentage: 85, color: 'bg-yellow-500' },
+  { name: 'Tailwind CSS',  percentage: 95, color: 'bg-cyan-500' },
+  { name: 'Node.js',       percentage: 75, color: 'bg-emerald-500' },
+  { name: 'MongoDB',       percentage: 70, color: 'bg-green-500' },
+  { name: 'UI / UX Design',percentage: 80, color: 'bg-purple-500' },
+];
 
-    useEffect(() => {
-      // Animate the circle on component mount
-      const circle = circleRef.current;
-      if (circle) {
-        const radius = circle.r.baseVal.value;
-        const circumference = 2 * Math.PI * radius;
+const highlights = [
+  { icon: Code2,   label: 'Clean Code',    desc: 'Readable, maintainable, well-structured' },
+  { icon: Palette, label: 'UI / UX Focus', desc: 'Beautiful and functional interfaces' },
+  { icon: Zap,     label: 'Performance',   desc: 'Fast loads through optimization' },
+  { icon: Users,   label: 'Team Player',   desc: 'Collaborative and communicative' },
+];
 
-        // Set the initial stroke dasharray and dashoffset
-        circle.style.strokeDasharray = circumference;
-        circle.style.strokeDashoffset = circumference;
+const SkillBar = ({ name, percentage, color, index }) => {
+  const barRef = useRef(null);
 
-        // Animate to the target percentage
-        setTimeout(() => {
-          const offset = circumference - (percentage / 100) * circumference;
-          circle.style.strokeDashoffset = offset;
-        }, 300); // Delay for staggered effect
-      }
-    }, [percentage]);
-
-    return (
-      <div className="flex flex-col items-center mb-8">
-        <div className="relative w-24 h-24">
-          <svg className="w-full h-full" viewBox="0 0 100 100">
-            {/* Background Circle */}
-            <circle
-              className="text-[#464242] stroke-current"
-              strokeWidth="8"
-              cx="50"
-              cy="50"
-              r="40"
-              fill="transparent"
-            />
-            {/* Progress Circle */}
-            <circle
-              ref={circleRef}
-              className="text-[#FFD700] stroke-current transition-all duration-1500 ease-out"
-              strokeWidth="8"
-              strokeLinecap="round"
-              cx="50"
-              cy="50"
-              r="40"
-              fill="transparent"
-              style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}
-            />
-          </svg>
-          {/* Percentage Text */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-[#FFD700] text-lg font-bold">
-              {percentage}%
-            </span>
-          </div>
-        </div>
-        {/* Skill Name */}
-        <span className="text-[#CCCCCC] text-sm mt-2 text-center">{skill}</span>
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && barRef.current) {
+          barRef.current.style.width = `${percentage}%`;
+        }
+      },
+      { threshold: 0.3 }
     );
-  };
+    const el = barRef.current;
+    if (el) observer.observe(el.parentElement);
+    return () => observer.disconnect();
+  }, [percentage]);
 
   return (
-    <section
-      id="/about"
-      className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold text-[#FFD700] mb-4 relative inline-block">
-            About Me
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-[#FFD700]/30 transform translate-y-2"></span>
+    <div className="space-y-1.5">
+      <div className="flex justify-between text-sm">
+        <span className="font-medium text-gray-700 dark:text-gray-300">{name}</span>
+        <span className="text-gray-400 dark:text-gray-500">{percentage}%</span>
+      </div>
+      <div className="h-1.5 bg-gray-100 dark:bg-[#1A1A1A] rounded-full overflow-hidden">
+        <div
+          ref={barRef}
+          className={`h-full ${color} rounded-full transition-all duration-1000 ease-out`}
+          style={{ width: '0%', transitionDelay: `${index * 100}ms` }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const About = () => {
+  return (
+    <section id="/about" className="section-padding bg-gray-50 dark:bg-[#0D0D0D]">
+      <div className="container-width">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <p className="section-label">About</p>
+          <h2 className="section-heading">
+            Full-Stack Developer &amp;{' '}
+            <span className="text-gray-400 dark:text-gray-500">UI Architect</span>
           </h2>
-          <p className="mt-2 text-lg text-[#A0A0A0]">
-            Passion meets technology
-          </p>
-        </div>
+        </motion.div>
 
-        {/* Content Container */}
-        <div className="space-y-12">
-          {/* Text and Card Section */}
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Text Content - Takes 50% width on desktop, full width on mobile */}
-            <div className="w-full md:w-1/2 p-4">
-              <h3 className="text-3xl font-bold text-white leading-tight">
-                Full-Stack Developer & UI Architect
-                <span className="block text-[#FFD700] mt-2">Based in Kolkata</span>
-              </h3>
-              <p className="text-lg text-[#CCCCCC] leading-relaxed mt-4">
-                Hi, I'm <span className="text-[#FFD700] font-semibold">Soumyajit Ray</span>, 
-                a frontend specialist with a passion for crafting immersive digital experiences. 
-                I bridge the gap between design and technology, creating solutions that are 
-                both beautiful and functional.
-              </p>
-            </div>
-
-            {/* Card Component - Takes 50% width on desktop, full width on mobile */}
-            <div className="m-auto p-12">
-              <Card  />
-            </div>
-          </div>
-
-          {/* Circular Progress Bars Section */}
-          <div className="bg-[#1A1A1A] p-6 rounded-lg border-l-4 border-[#FFD700] ">
-            <p className="text-[#CCCCCC] mb-6 text-lg font-semibold">
-              Technical Proficiency :
+        {/* Top row: Bio + Globe */}
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-14">
+          {/* Bio + highlight cards */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              Hi, I'm{' '}
+              <span className="font-semibold text-gray-900 dark:text-white">Soumyajit Ray</span>,
+              a frontend specialist passionate about crafting immersive digital experiences.
+              I bridge the gap between design and technology, building solutions that are
+              both beautiful and functional.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {skills.map((skill, index) => (
-                <CircularProgressBar
-                  key={skill.name}
-                  skill={skill.name}
-                  percentage={skill.percentage}
-                />
+            <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed">
+              When I'm not coding, you'll find me exploring new animation libraries or
+              optimizing web performance. Always learning, always building.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              {highlights.map(({ icon: Icon, label, desc }) => (
+                <div key={label} className="card p-4 space-y-2">
+                  <div className="p-2 w-fit rounded-lg bg-indigo-50 dark:bg-indigo-900/20">
+                    <Icon size={15} className="text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <p className="font-semibold text-sm text-gray-900 dark:text-white">{label}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">{desc}</p>
+                </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Additional Text */}
-          <p className="text-lg text-[#CCCCCC] leading-relaxed">
-            When I'm not coding, you'll find me exploring new animation libraries 
-            or optimizing web performance. Let's connect and create something 
-            extraordinary!
-          </p>
+          {/* Interactive Globe */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col gap-3"
+          >
+            <p className="section-label">Global Reach</p>
+            <div className="h-80 md:h-96 rounded-2xl overflow-hidden border border-gray-200 dark:border-[#1F1F1F]">
+              <Suspense fallback={
+                <div className="w-full h-full bg-gray-100 dark:bg-[#111111] flex items-center justify-center">
+                  <span className="text-sm text-gray-400">Loading globe…</span>
+                </div>
+              }>
+                <Globe />
+              </Suspense>
+            </div>
+          </motion.div>
         </div>
+
+        {/* Skills row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="section-label mb-6">Technical Proficiency</p>
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-5">
+            {skills.map((skill, index) => (
+              <SkillBar key={skill.name} {...skill} index={index} />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,70 +1,72 @@
-import React from 'react';
-import { FaFilePdf } from "react-icons/fa";
+import { motion } from 'framer-motion';
+import { Download, Eye, FileText } from 'lucide-react';
 import CV from '../../Assets/SoumyajitRay_Resume.pdf';
 
 const Resume = () => {
   return (
-    <section 
-      id='/resume' 
-      className="relative py-20 px-4 sm:px-6 lg:px-8 "
-    >
-      <div className="max-w-4xl mx-auto">
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent">
-            Resume
-          </h2>
-          <p className="mt-4 text-lg text-slate-300">
-            Explore my professional journey and technical expertise
+    <section id="/resume" className="section-padding">
+      <div className="container-width">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <p className="section-label">Resume</p>
+          <h2 className="section-heading">My Professional Profile</h2>
+          <p className="mt-3 text-gray-500 dark:text-gray-500 max-w-xl">
+            View my full resume to explore my technical skills, work experience, and educational background.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Resume Card */}
-        <div className="flex justify-center">
-          <div className="group relative bg-white dark:bg-neutral-700 rounded-2xl p-8 shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 w-full max-w-2xl">
-          <p className=" text-center text-gray-300 text-sm mb-6">
-          Click icon to preview or button to download
-        </p>
-            <div className="text-center">
-              {/* PDF Icon with New Tab Link */}
-              <div className="mb-6 flex justify-center">
-                <a 
-                  href={CV} 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="card p-8 max-w-xl"
+        >
+          <div className="flex items-start gap-5">
+            <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 flex-shrink-0">
+              <FileText size={28} className="text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-gray-900 dark:text-white text-lg leading-snug mb-1">
+                Soumyajit Ray — Resume
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-500 mb-6">
+                PDF · Last updated April 2025
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={CV}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:scale-105 transition-transform"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold
+                    border border-gray-200 dark:border-[#2A2A2A] text-gray-700 dark:text-gray-300
+                    hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200"
                   aria-label="Preview Resume"
                 >
-                  <div className="p-4 bg-amber-100 dark:bg-neutral-600 rounded-full group-hover:rotate-12 transition-transform duration-300">
-                    <FaFilePdf className="text-6xl text-amber-500 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" />
-                  </div>
+                  <Eye size={15} />
+                  Preview
+                </a>
+                <a
+                  href={CV}
+                  download="Soumyajit_Ray_Resume.pdf"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold
+                    bg-gray-900 dark:bg-white text-white dark:text-gray-900
+                    hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-200"
+                  aria-label="Download Resume"
+                >
+                  <Download size={15} />
+                  Download
                 </a>
               </div>
-
-              {/* Download Button */}
-              <a
-                href={CV}
-                download="Soumyajit_Ray_Resume.pdf"
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-500 hover:bg-amber-600 transition-colors duration-300 shadow-lg hover:shadow-amber-500/30 dark:hover:shadow-amber-400/20"
-                aria-label="Download Resume"
-              >
-                <FaFilePdf className="mr-2 h-5 w-5" />
-                Download Resume
-              </a>
-
-              {/* Additional Info */}
-              <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">
-                PDF Format | Last Updated: April 2025
-              </p>
             </div>
-
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-amber-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>
-        </div>
-
-        {/* Preview Text */}
-        
+        </motion.div>
       </div>
     </section>
   );

@@ -116,24 +116,21 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Interactive Globe */}
+          {/* Real-time Earth Globe */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col gap-3"
+            className="h-80 md:h-96 rounded-2xl overflow-hidden"
           >
-            <p className="section-label">Global Reach</p>
-            <div className="h-80 md:h-96 rounded-2xl overflow-hidden border border-gray-200 dark:border-[#1F1F1F]">
-              <Suspense fallback={
-                <div className="w-full h-full bg-gray-100 dark:bg-[#111111] flex items-center justify-center">
-                  <span className="text-sm text-gray-400">Loading globe…</span>
-                </div>
-              }>
-                <Globe />
-              </Suspense>
-            </div>
+            <Suspense fallback={
+              <div className="w-full h-full bg-gray-100 dark:bg-[#0b0e1c] rounded-2xl flex items-center justify-center">
+                <span className="text-sm text-gray-400">Loading…</span>
+              </div>
+            }>
+              <Globe />
+            </Suspense>
           </motion.div>
         </div>
 

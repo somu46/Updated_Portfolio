@@ -1,159 +1,249 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-const markers = [
-  { lat: 22.629184,  lon: 88.452165,  color: 0x6366f1, label: 'Kolkata (Home)' },
-  { lat: 9.08,   lon: 8.68,   color: 0xf59e0b, label: 'Nigeria' },
-  { lat: -30.55, lon: 22.94,  color: 0xf59e0b, label: 'South Africa' },
-  { lat: 23.89,  lon: 45.08,  color: 0xf59e0b, label: 'Saudi Arabia' },
-  { lat: 49.82,  lon: 15.47,  color: 0xf59e0b, label: 'Czech Republic' },
-  { lat: 39.83,  lon: -98.58, color: 0xf59e0b, label: 'USA' },
+const TEX = 'https://threejs.org/examples/textures/planets/';
+
+const MARKERS = [
+  {
+    lat: 22.5726, lon: 88.3639,
+    color: 0x818cf8,
+    name: 'Kolkata, India',
+    role: 'Home Base',
+    
+  },
+  {
+    lat: 8.6698, lon: 7.0360,
+    color: 0xfbbf24,
+    name: 'Abuja, Nigeria',
+    role: 'Client',
+    
+  },
 ];
 
 const Globe = () => {
-  const containerRef = useRef(null);
+  const canvasRef  = useRef(null);   // Three.js mounts here
+  const meshesRef  = useRef([]);     // { mesh, marker } for raycasting
+  const cameraRef  = useRef(null);
+  const [popup, setPopup] = useState(null); // { x, y, marker }
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = canvasRef.current;
     if (!container) return;
 
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const w = container.clientWidth;
+    const h = container.clientHeight;
 
-    // Scene
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x060614);
-
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
     camera.position.set(0, 0, 15);
+    cameraRef.current = camera;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(width, height);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(w, h);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.8;
-    controls.enableZoom = false;
-    controls.enablePan = false;
+    controls.enableDamping    = true;
+    controls.dampingFactor    = 0.05;
+    controls.autoRotate       = true;
+    controls.autoRotateSpeed  = 0.5;
+    controls.enableZoom       = false;
+    controls.enablePan        = false;
 
-    // Earth
-    const textureLoader = new THREE.TextureLoader();
-    const earthTex = textureLoader.load(
-      'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg'
-    );
+    const loader = new THREE.TextureLoader();
+
+    /* Earth */
     const earth = new THREE.Mesh(
       new THREE.SphereGeometry(5, 64, 64),
-      new THREE.MeshPhongMaterial({ map: earthTex, shininess: 8 })
+      new THREE.MeshPhongMaterial({
+        map:         loader.load(TEX + 'earth_atmos_2048.jpg'),
+        specularMap: loader.load(TEX + 'earth_specular_2048.jpg'),
+        normalMap:   loader.load(TEX + 'earth_normal_2048.jpg'),
+        normalScale: new THREE.Vector2(0.85, 0.85),
+        specular:    new THREE.Color(0x333333),
+        shininess:   18,
+      })
     );
     scene.add(earth);
 
-    // Atmosphere glow
-    const atmosphereGeo = new THREE.SphereGeometry(5.15, 64, 64);
-    const atmosphereMat = new THREE.MeshPhongMaterial({
-      color: 0x4466ff,
-      transparent: true,
-      opacity: 0.08,
-      side: THREE.FrontSide,
-    });
-    scene.add(new THREE.Mesh(atmosphereGeo, atmosphereMat));
+    /* Clouds */
+    const clouds = new THREE.Mesh(
+      new THREE.SphereGeometry(5.08, 64, 64),
+      new THREE.MeshPhongMaterial({
+        map: loader.load(TEX + 'earth_clouds_1024.png'),
+        transparent: true, opacity: 0.38, depthWrite: false,
+      })
+    );
+    scene.add(clouds);
 
-    // Stars
-    const starPositions = new Float32Array(3000 * 3);
-    for (let i = 0; i < starPositions.length; i++) {
-      starPositions[i] = (Math.random() - 0.5) * 300;
-    }
-    const starsGeo = new THREE.BufferGeometry();
-    starsGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-    scene.add(new THREE.Points(starsGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.18 })));
+    /* Atmosphere */
+    scene.add(new THREE.Mesh(
+      new THREE.SphereGeometry(5.22, 64, 64),
+      new THREE.MeshPhongMaterial({ color: 0x4499ff, transparent: true, opacity: 0.055, side: THREE.FrontSide })
+    ));
+    scene.add(new THREE.Mesh(
+      new THREE.SphereGeometry(5.5, 64, 64),
+      new THREE.MeshPhongMaterial({ color: 0x1144cc, transparent: true, opacity: 0.018, side: THREE.BackSide })
+    ));
 
-    // Lights
-    scene.add(new THREE.AmbientLight(0x334466, 1.2));
-    const sun = new THREE.DirectionalLight(0xffeedd, 1.5);
-    sun.position.set(8, 5, 10);
+    /* Lighting */
+    scene.add(new THREE.AmbientLight(0x112244, 3.8));
+    const sun = new THREE.DirectionalLight(0xfff0e0, 2.6);
+    sun.position.set(12, 5, 8);
     scene.add(sun);
 
-    // Add location markers
-    const addMarker = (lat, lon, color) => {
-      const phi = (90 - lat) * (Math.PI / 180);
-      const theta = lon * (Math.PI / 180);
-      const r = 5.12;
-      const position = new THREE.Vector3(
-        r * Math.sin(phi) * Math.cos(theta),
-        r * Math.cos(phi),
-        r * Math.sin(phi) * Math.sin(theta)
+    /* Markers */
+    const ringMats = [];
+
+    MARKERS.forEach((m) => {
+      const phi   = (90 - m.lat) * (Math.PI / 180);
+      const theta = (m.lon + 180) * (Math.PI / 180);
+      const R = 5.14;
+      const pos = new THREE.Vector3(
+        -R * Math.sin(phi) * Math.cos(theta),
+         R * Math.cos(phi),
+         R * Math.sin(phi) * Math.sin(theta)
       );
 
-      // Marker sphere
-      const marker = new THREE.Mesh(
-        new THREE.SphereGeometry(0.1, 10, 10),
-        new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 0.8 })
+      /* Visible dot */
+      const dot = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 16, 16),
+        new THREE.MeshBasicMaterial({ color: m.color })
       );
-      marker.position.copy(position);
-      scene.add(marker);
+      dot.position.copy(pos);
+      scene.add(dot);
 
-      // Halo ring
-      const ring = new THREE.Mesh(
-        new THREE.RingGeometry(0.14, 0.22, 24),
-        new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.5, side: THREE.DoubleSide })
+      /* Invisible larger hit target */
+      const hitMesh = new THREE.Mesh(
+        new THREE.SphereGeometry(0.28, 8, 8),
+        new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
       );
-      ring.position.copy(position);
+      hitMesh.position.copy(pos);
+      scene.add(hitMesh);
+      meshesRef.current.push({ mesh: hitMesh, marker: m });
+
+      /* Pulse ring */
+      const ringMat = new THREE.MeshBasicMaterial({
+        color: m.color, transparent: true, opacity: 0.7, side: THREE.DoubleSide,
+      });
+      const ring = new THREE.Mesh(new THREE.RingGeometry(0.11, 0.17, 32), ringMat);
+      ring.position.copy(pos);
       ring.lookAt(new THREE.Vector3(0, 0, 0));
       scene.add(ring);
-    };
+      ringMats.push(ringMat);
+    });
 
-    markers.forEach(({ lat, lon, color }) => addMarker(lat, lon, color));
-
-    // Animate
+    /* Render loop */
+    const clock = new THREE.Clock();
     let animId;
     const animate = () => {
       animId = requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+      ringMats.forEach((mat, i) => {
+        const offset = i * Math.PI;
+        const pulse = 1 + 0.35 * Math.abs(Math.sin(t * 1.8 + offset));
+        mat.opacity = 0.7 * (1 - (pulse - 1) / 0.35);
+      });
+      clouds.rotation.y += 0.00008;
       controls.update();
       renderer.render(scene, camera);
     };
     animate();
 
-    // Resize handler
+    /* Raycasting — click on a dot to show popup */
+    const raycaster = new THREE.Raycaster();
+    const mouse     = new THREE.Vector2();
+
+    const onClick = (e) => {
+      const rect = container.getBoundingClientRect();
+      mouse.x =  ((e.clientX - rect.left)  / rect.width)  * 2 - 1;
+      mouse.y = -((e.clientY - rect.top)   / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const hits = raycaster.intersectObjects(meshesRef.current.map(d => d.mesh));
+
+      if (hits.length > 0) {
+        const hit    = hits[0].object;
+        const entry  = meshesRef.current.find(d => d.mesh === hit);
+        if (entry) {
+          setPopup({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+            marker: entry.marker,
+          });
+          controls.autoRotate = false; // pause while popup is open
+        }
+      } else {
+        setPopup(null);
+        controls.autoRotate = true;
+      }
+    };
+
+    /* Cursor changes on hover */
+    const onMouseMove = (e) => {
+      const rect = container.getBoundingClientRect();
+      mouse.x =  ((e.clientX - rect.left)  / rect.width)  * 2 - 1;
+      mouse.y = -((e.clientY - rect.top)   / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const hits = raycaster.intersectObjects(meshesRef.current.map(d => d.mesh));
+      container.style.cursor = hits.length > 0 ? 'pointer' : 'grab';
+    };
+
+    container.addEventListener('click', onClick);
+    container.addEventListener('mousemove', onMouseMove);
+
     const onResize = () => {
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      renderer.setSize(w, h);
-      camera.aspect = w / h;
+      const nw = container.clientWidth;
+      const nh = container.clientHeight;
+      renderer.setSize(nw, nh);
+      camera.aspect = nw / nh;
       camera.updateProjectionMatrix();
     };
     window.addEventListener('resize', onResize);
 
     return () => {
       cancelAnimationFrame(animId);
+      container.removeEventListener('click', onClick);
+      container.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('resize', onResize);
       controls.dispose();
       renderer.dispose();
-      if (container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
-      }
+      if (container.contains(renderer.domElement)) container.removeChild(renderer.domElement);
     };
   }, []);
 
+  /* Clamp popup so it never overflows the container */
+  const popupStyle = popup ? {
+    left: Math.min(popup.x + 14, (canvasRef.current?.clientWidth ?? 400) - 200),
+    top:  Math.max(popup.y - 80, 8),
+  } : {};
+
   return (
-    <div className="relative w-full h-full">
-      <div ref={containerRef} className="w-full h-full rounded-2xl overflow-hidden" />
-      {/* Legend */}
-      <div className="absolute bottom-3 left-3 flex flex-col gap-1.5 pointer-events-none">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 flex-shrink-0" />
-          <span className="text-xs text-white/70">Kolkata, India (Home)</span>
+    <div className="relative w-full h-full rounded-2xl overflow-hidden">
+      <div ref={canvasRef} className="w-full h-full" />
+
+      {popup && (
+        <div
+          className="absolute z-10 w-48 rounded-xl bg-black/75 backdrop-blur-md
+            border border-white/10 p-3 pointer-events-none
+            animate-fade-in"
+          style={popupStyle}
+        >
+          <p className="text-[10px] uppercase tracking-widest font-semibold mb-1"
+            style={{ color: popup.marker.color === 0x818cf8 ? '#818cf8' : '#fbbf24' }}>
+            {popup.marker.role}
+          </p>
+          <p className="text-white text-sm font-semibold leading-tight mb-1.5">
+            {popup.marker.name}
+          </p>
+          {/* <p className="text-gray-400 text-[11px] leading-relaxed">
+            {popup.marker.connection}
+          </p> */}
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0" />
-          <span className="text-xs text-white/70">Client regions</span>
-        </div>
-      </div>
-      
+      )}
     </div>
   );
 };

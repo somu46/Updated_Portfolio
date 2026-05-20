@@ -72,7 +72,7 @@ const Profile = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10"
         >
           <p className="section-label">Timeline</p>
           <h2 className="section-heading">Education &amp; Experience</h2>

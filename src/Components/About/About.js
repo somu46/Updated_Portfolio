@@ -1,6 +1,6 @@
 import { useEffect, useRef, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Palette, Zap, Users } from 'lucide-react';
+import { Code2, Palette, Zap, Users, Camera } from 'lucide-react';
 
 const Globe = lazy(() => import('../Globe/Globe'));
 
@@ -14,10 +14,11 @@ const skills = [
 ];
 
 const highlights = [
-  { icon: Code2,   label: 'Clean Code',    desc: 'Readable, maintainable, well-structured' },
-  { icon: Palette, label: 'UI / UX Focus', desc: 'Beautiful and functional interfaces' },
-  { icon: Zap,     label: 'Performance',   desc: 'Fast loads through optimization' },
-  { icon: Users,   label: 'Team Player',   desc: 'Collaborative and communicative' },
+  { icon: Code2,   label: 'Clean Code',       desc: 'Readable, maintainable, well-structured' },
+  { icon: Palette, label: 'UI / UX Focus',    desc: 'Beautiful and functional interfaces' },
+  { icon: Zap,     label: 'Performance',      desc: 'Fast loads through optimization' },
+  { icon: Users,   label: 'Team Player',      desc: 'Collaborative and communicative' },
+  { icon: Camera,  label: 'Through the Lens', desc: 'Landscapes & astro photography' },
 ];
 
 const SkillBar = ({ name, percentage, color, index }) => {
@@ -64,17 +65,19 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10"
         >
           <p className="section-label">About</p>
           <h2 className="section-heading">
-            Full-Stack Developer &amp;{' '}
-            <span className="text-gray-400 dark:text-gray-500">UI Architect</span>
+            Developer,{' '}
+            <span className="text-gray-400 dark:text-gray-500">Designer</span>
+            {' '}&amp;{' '}
+            <span className="bg-gradient-to-r from-amber-400 to-rose-500 bg-clip-text text-transparent">Photographer</span>
           </h2>
         </motion.div>
 
         {/* Top row: Bio + Globe */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-14">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
           {/* Bio + highlight cards */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -87,24 +90,30 @@ const About = () => {
               Hi, I'm{' '}
               <span className="font-semibold text-gray-900 dark:text-white">Soumyajit Ray</span>,
               a frontend specialist passionate about crafting immersive digital experiences.
-              I bridge the gap between design and technology, building solutions that are
-              both beautiful and functional.
+              I bridge the gap between design and technology — building interfaces that
+              are both beautiful and purposeful.
             </p>
             <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed">
-              When I'm not coding, you'll find me exploring new animation libraries or
-              optimizing web performance. Always learning, always building.
+              When I'm not coding, I'm out with my camera — chasing{' '}
+              <span className="text-amber-500 dark:text-amber-400 font-medium">golden hour</span> across mountains,
+              or lying under dark skies waiting for the{' '}
+              <span className="text-indigo-400 font-medium">Milky Way</span> to emerge.
+              Two crafts, one eye for detail.
             </p>
 
             <div className="grid grid-cols-2 gap-3 pt-2">
-              {highlights.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="card p-4 space-y-2">
-                  <div className="p-2 w-fit rounded-lg bg-indigo-50 dark:bg-indigo-900/20">
-                    <Icon size={15} className="text-indigo-600 dark:text-indigo-400" />
+              {highlights.map(({ icon: Icon, label, desc }) => {
+                const isPhoto = label === 'Through the Lens';
+                return (
+                  <div key={label} className={`card p-4 space-y-2 ${isPhoto ? 'col-span-2 sm:col-span-1 border-amber-200/60 dark:border-amber-800/40 bg-amber-50/50 dark:bg-amber-900/10' : ''}`}>
+                    <div className={`p-2 w-fit rounded-lg ${isPhoto ? 'bg-amber-100 dark:bg-amber-900/30' : 'bg-indigo-50 dark:bg-indigo-900/20'}`}>
+                      <Icon size={15} className={isPhoto ? 'text-amber-600 dark:text-amber-400' : 'text-indigo-600 dark:text-indigo-400'} />
+                    </div>
+                    <p className="font-semibold text-sm text-gray-900 dark:text-white">{label}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">{desc}</p>
                   </div>
-                  <p className="font-semibold text-sm text-gray-900 dark:text-white">{label}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">{desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 

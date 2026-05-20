@@ -11,7 +11,7 @@ const Resume = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="section-label">Resume</p>
           <h2 className="section-heading">My Professional Profile</h2>

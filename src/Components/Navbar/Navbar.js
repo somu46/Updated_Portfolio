@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, Camera } from 'lucide-react';
 import { ThemeContext } from '../../App';
 
 const navLinks = [
@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'About', to: '/about' },
   { label: 'Resume', to: '/resume' },
   { label: 'Timeline', to: '/profile' },
+  { label: 'Photography', to: '/photography', highlight: true },
   { label: 'Projects', to: '/projects' },
   { label: 'Contact', to: '/contact' },
 ];
@@ -58,10 +59,14 @@ const NavBar = () => {
                 offset={-64}
                 duration={500}
                 activeClass="text-gray-900 dark:text-white bg-gray-100 dark:bg-white/10"
-                className="px-4 py-2 rounded-lg text-sm font-medium text-gray-500 dark:text-gray-400
-                  hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10
-                  transition-all duration-200 cursor-pointer"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer
+                  inline-flex items-center gap-1.5
+                  ${link.highlight
+                    ? 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20'
+                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
+                  }`}
               >
+                {link.highlight && <Camera size={13} />}
                 {link.label}
               </Link>
             ))}
@@ -89,7 +94,7 @@ const NavBar = () => {
                 bg-gray-900 dark:bg-white text-white dark:text-gray-900
                 hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-200 cursor-pointer"
             >
-              Hire Me
+              Contact Me
             </Link>
 
             {/* Mobile hamburger */}
@@ -143,7 +148,7 @@ const NavBar = () => {
                     bg-gray-900 dark:bg-white text-white dark:text-gray-900 cursor-pointer
                     hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-200"
                 >
-                  Hire Me
+                  Contact Me
                 </Link>
               </div>
             </nav>

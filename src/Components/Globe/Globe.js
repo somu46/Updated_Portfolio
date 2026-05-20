@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const markers = [
-  { lat: 22.57,  lon: 88.36,  color: 0x6366f1, label: 'Kolkata (Home)' },
+  { lat: 22.629184,  lon: 88.452165,  color: 0x6366f1, label: 'Kolkata (Home)' },
   { lat: 9.08,   lon: 8.68,   color: 0xf59e0b, label: 'Nigeria' },
   { lat: -30.55, lon: 22.94,  color: 0xf59e0b, label: 'South Africa' },
   { lat: 23.89,  lon: 45.08,  color: 0xf59e0b, label: 'Saudi Arabia' },
@@ -153,10 +153,7 @@ const Globe = () => {
           <span className="text-xs text-white/70">Client regions</span>
         </div>
       </div>
-      {/* Drag hint */}
-      <p className="absolute top-3 right-3 text-xs text-white/40 pointer-events-none">
-        Drag to rotate
-      </p>
+      
     </div>
   );
 };

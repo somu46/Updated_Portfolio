@@ -18,7 +18,6 @@ const highlights = [
   { icon: Palette, label: 'UI / UX Focus',    desc: 'Beautiful and functional interfaces' },
   { icon: Zap,     label: 'Performance',      desc: 'Fast loads through optimization' },
   { icon: Users,   label: 'Team Player',      desc: 'Collaborative and communicative' },
-  { icon: Camera,  label: 'Through the Lens', desc: 'Landscapes & astro photography' },
 ];
 
 const SkillBar = ({ name, percentage, color, index }) => {
@@ -57,7 +56,7 @@ const SkillBar = ({ name, percentage, color, index }) => {
 
 const About = () => {
   return (
-    <section id="/about" className="section-padding bg-gray-50 dark:bg-[#0D0D0D]">
+    <section id="/about" className="section-padding bg-gray-50 dark:bg-transparent">
       <div className="container-width">
         {/* Header */}
         <motion.div

@@ -65,7 +65,7 @@ const TimelineItem = ({ year, title, sub, detail, details, isLast }) => (
 
 const Profile = () => {
   return (
-    <section id="/profile" className="section-padding bg-gray-50 dark:bg-[#0D0D0D]">
+    <section id="/profile" className="section-padding bg-gray-50 dark:bg-transparent">
       <div className="container-width">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

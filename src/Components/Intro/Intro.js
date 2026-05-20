@@ -33,35 +33,35 @@ const fadeUp = (delay = 0) => ({
 });
 
 /* Aperture ring — decorative SVG rendered around the profile photo */
-const ApertureRing = () => (
-  <svg
-    className="absolute inset-0 w-full h-full animate-aperture-spin"
-    viewBox="0 0 100 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {[0, 60, 120, 180, 240, 300].map((angle) => (
-      <line
-        key={angle}
-        x1="50"
-        y1="3"
-        x2="50"
-        y2="11"
-        stroke="url(#apertureGrad)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        transform={`rotate(${angle} 50 50)`}
-      />
-    ))}
-    <circle cx="50" cy="50" r="46" stroke="url(#apertureGrad)" strokeWidth="0.5" strokeDasharray="3 6" />
-    <defs>
-      <linearGradient id="apertureGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#f59e0b" />
-        <stop offset="1" stopColor="#f43f5e" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
+// const ApertureRing = () => (
+//   <svg
+//     className="absolute inset-0 w-full h-full animate-aperture-spin"
+//     viewBox="0 0 100 100"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//   >
+//     {[0, 60, 120, 180, 240, 300].map((angle) => (
+//       <line
+//         key={angle}
+//         x1="50"
+//         y1="3"
+//         x2="50"
+//         y2="11"
+//         stroke="url(#apertureGrad)"
+//         strokeWidth="2.5"
+//         strokeLinecap="round"
+//         transform={`rotate(${angle} 50 50)`}
+//       />
+//     ))}
+//     <circle cx="50" cy="50" r="46" stroke="url(#apertureGrad)" strokeWidth="0.5" strokeDasharray="3 6" />
+//     <defs>
+//       <linearGradient id="apertureGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+//         <stop stopColor="#f59e0b" />
+//         <stop offset="1" stopColor="#f43f5e" />
+//       </linearGradient>
+//     </defs>
+//   </svg>
+// );
 
 const Hero = () => {
   return (

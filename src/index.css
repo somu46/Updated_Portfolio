@@ -74,7 +74,7 @@ body::before {
   }
 
   .container-width {
-    @apply max-w-6xl mx-auto w-full;
+    @apply  mx-auto w-full;
   }
 
   .section-label {

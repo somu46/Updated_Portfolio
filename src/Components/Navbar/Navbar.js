@@ -33,7 +33,7 @@ const NavBar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
@@ -120,7 +120,7 @@ const NavBar = () => {
             transition={{ duration: 0.2 }}
             className="lg:hidden bg-white/95 dark:bg-[#0D0D0D]/95 backdrop-blur-xl border-b border-gray-200 dark:border-[#1F1F1F]"
           >
-            <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+            <nav className="mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}

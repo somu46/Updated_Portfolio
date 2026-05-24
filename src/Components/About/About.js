@@ -122,7 +122,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="h-80 md:h-96 rounded-2xl overflow-hidden"
+            className="h-full md:h-96 rounded-2xl"
           >
             <Suspense fallback={
               <div className="w-full h-full bg-gray-100 dark:bg-[#0b0e1c] rounded-2xl flex items-center justify-center">

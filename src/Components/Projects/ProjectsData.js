@@ -19,25 +19,6 @@ const projectData = [
         }
     },
     {
-        id: 2,
-        title: "Avishree Hospitality Pvt. Ltd.",
-        description: "A website designed for Avishree Hospitality to showcase its services and offerings.",
-        image: "https://res.cloudinary.com/dnokefb0w/image/upload/v1739953766/Protfolio_Project_Image/avishreehospitality.com_endr6g.jpg", 
-        github: "https://github.com/somu46/Avishree.git", 
-        live: "https://avishreehospitality.com", 
-        explanation: {
-            description1: "A professional and visually appealing website for Avishree Hospitality Pvt. Ltd., highlighting their hospitality services, portfolio, and client engagement.",
-            technologies: ["React", "Next.js", "Tailwind CSS", "Strapi CMS"],
-            features: [
-                "Elegant and modern UI design",
-                "Service showcase with detailed descriptions",
-                "Client testimonials and reviews",
-                "SEO-optimized and mobile-friendly layout",
-                "CMS-powered content management"
-            ]
-        }
-    },
-    {
         id: 3,
         title: "NestFixers",
         description: "A home maintenance service booking platform.",
